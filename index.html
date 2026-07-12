@@ -80,7 +80,7 @@ const SUPABASE_ANON_KEY = "sb_publishable_h_NPMSfA7Z9gCdyzRb5kAQ_FH7Q0Pmv";
   .pain{background:var(--paper);border-bottom:1px solid var(--line)}
   .pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:34px}
   .pain-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px;box-shadow:var(--shadow)}
-  .pain-card .n{font-size:26px}
+  .pain-card .n{font-size:13px;font-weight:800;color:var(--teal);letter-spacing:2px;border-bottom:2px solid var(--teal);display:inline-block;padding-bottom:4px}
   .pain-card h3{color:var(--navy);font-size:16px;margin-top:10px}
   .pain-card p{color:var(--muted);font-size:14px;margin-top:8px}
 
@@ -107,6 +107,30 @@ const SUPABASE_ANON_KEY = "sb_publishable_h_NPMSfA7Z9gCdyzRb5kAQ_FH7Q0Pmv";
   .stepc h3{color:var(--navy);font-size:16.5px;margin-top:4px}
   .stepc p{color:var(--muted);font-size:14px;margin-top:9px}
   .stepc .tag{display:inline-block;margin-top:12px;font-size:11px;font-weight:700;color:var(--teal);background:#eef7f7;border-radius:999px;padding:3px 11px}
+
+  /* product proof (audit H1) */
+  .proofwrap{max-width:760px;margin:40px auto 0;text-align:left}
+  .proofcard{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 8px 30px rgba(11,37,69,.12);padding:22px;position:relative}
+  .proofcard:before{content:"TOMORROW'S BRIEFING — 3 MATCHES, 2 READY";display:block;font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--faint);margin-bottom:14px}
+  .pc-top{display:flex;gap:16px;align-items:flex-start}
+  .pc-score{width:46px;height:46px;border-radius:50%;background:var(--teal);color:#fff;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .pc-main{min-width:0;flex:1}
+  .pc-title{font-weight:700;color:var(--navy);font-size:16px}
+  .pc-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
+  .chip{font-size:11.5px;font-weight:700;border-radius:999px;padding:3px 10px}
+  .chip.green{background:#ecfdf5;color:#047857}
+  .chip.blue{background:#eff6ff;color:#1d4ed8}
+  .chip.gray{background:#f1f5f9;color:#475569}
+  .pc-why{color:#475569;font-size:13.5px;margin-top:10px;line-height:1.6}
+  .pc-resume{color:#334155;font-size:12.5px;margin-top:10px;background:var(--paper);border:1px dashed var(--line);border-radius:8px;padding:8px 12px}
+  .pc-resume b{color:var(--navy)}
+  .pc-actions{display:flex;flex-direction:column;gap:8px;align-items:flex-end;flex-shrink:0}
+  .pc-approve{background:var(--teal);color:#fff;font-weight:700;font-size:13.5px;border-radius:8px;padding:9px 18px;white-space:nowrap}
+  .pc-skip{color:var(--faint);font-size:11.5px}
+  .prooflabels{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:20px}
+  .plabel{font-size:12.5px;color:#475569;line-height:1.55;border-top:2px solid var(--teal);padding-top:9px}
+  .plabel b{color:var(--navy)}
+  @media(max-width:640px){.pc-top{flex-wrap:wrap}.pc-actions{flex-direction:row;align-items:center;width:100%;justify-content:flex-start}}
 
   /* guarantee band */
   .band{background:var(--navy);color:#fff;padding:54px 0}
@@ -193,6 +217,7 @@ const SUPABASE_ANON_KEY = "sb_publishable_h_NPMSfA7Z9gCdyzRb5kAQ_FH7Q0Pmv";
   .pill.on{background:var(--teal);border-color:var(--teal);color:#fff;font-weight:600}
   .pills.err .pill{border-color:#fca5a5}
   .modal label b{display:block;font-size:11.5px;color:var(--navy);letter-spacing:.4px;margin-bottom:5px}
+  .opt{font-size:10px;font-weight:600;color:var(--faint);letter-spacing:.3px;text-transform:none}
   .modal input[type=text],.modal input[type=email],.modal select{width:100%;border:1px solid #cbd5e1;border-radius:8px;padding:9px 12px;font-size:16px;font-family:inherit;transition:border-color .15s,box-shadow .15s;background:#fff}
   .modal input:focus,.modal select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(14,124,123,.13);outline:none}
   .modal input.err,.modal select.err{border-color:#dc2626}
@@ -266,9 +291,53 @@ const SUPABASE_ANON_KEY = "sb_publishable_h_NPMSfA7Z9gCdyzRb5kAQ_FH7Q0Pmv";
     <div class="kicker">The problem isn't you. It's the math.</div>
     <h2>A serious job search takes 15 hours a week.<br>Your week doesn't have 15 to spare.</h2>
     <div class="pain-grid">
-      <div class="pain-card"><div class="n" aria-hidden="true">🕳️</div><h3>Doing it yourself</h3><p>Scanning boards at 11pm, rewriting your résumé for every posting, re-typing your work history into the same Workday forms. While employed. Indefinitely.</p></div>
-      <div class="pain-card"><div class="n" aria-hidden="true">🤖</div><h3>The cheap auto-apply bots</h3><p>They blast one generic résumé at 500 jobs under your name. Recruiters have learned to ignore the spray-and-pray pattern — and your LinkedIn account carries the ban risk.</p></div>
-      <div class="pain-card"><div class="n" aria-hidden="true">💸</div><h3>Human reverse recruiters</h3><p>They do it right — for $1,500–4,500 a month. The service isn't the problem. The invoice is.</p></div>
+      <div class="pain-card"><div class="n" aria-hidden="true">01</div><h3>Doing it yourself</h3><p>Scanning boards at 11pm, rewriting your résumé for every posting, re-typing your work history into the same Workday forms. While employed. Indefinitely.</p></div>
+      <div class="pain-card"><div class="n" aria-hidden="true">02</div><h3>The cheap auto-apply bots</h3><p>They blast one generic résumé at 500 jobs under your name. Recruiters have learned to ignore the spray-and-pray pattern — and your LinkedIn account carries the ban risk.</p></div>
+      <div class="pain-card"><div class="n" aria-hidden="true">03</div><h3>Human reverse recruiters</h3><p>They do it right — for $1,500–4,500 a month. The service isn't the problem. The invoice is.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW (moved above the cost-math per audit H2: mechanism before ROI) -->
+<section id="how">
+  <div class="wrap center">
+    <div class="kicker">How Helm works</div>
+    <h2>You sleep. It hunts. You approve.</h2>
+    <p class="sub">One 12-minute setup, then your entire job search becomes a 60-second morning ritual.</p>
+    <div class="steps">
+      <div class="stepc"><div class="num">1</div><h3>Set your course — once</h3><p>Upload your résumé, define the goal: target roles, salary floor, max commute, what good culture means to you — and the employers we must never contact (like your current one).</p><span class="tag">12 minutes, one time</span></div>
+      <div class="stepc"><div class="num">2</div><h3>Helm works the night shift</h3><p>Every fresh posting from the major job feeds, scored against your goal. The top matches get your résumé re-tailored, screening questions drafted, employer intel pulled from the posting — every claim sourced from your real history, nothing invented. Ever.</p><span class="tag">While you sleep</span></div>
+      <div class="stepc"><div class="num">3</div><h3>Coffee. Review. Tap.</h3><p>Your 7am briefing: the day's ranked matches with the why, the fit score, and the finished application. Approve with one tap, skip what you don't like — then Helm fills the employer's form in your own browser and <b>the final Submit click is yours, every time.</b></p><span class="tag">60 seconds a day</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT PROOF (audit H1): show the invisible product — an annotated
+     replica of the actual morning-briefing card, pure HTML/CSS. -->
+<section class="proof" style="background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap center">
+    <div class="kicker">What you'll actually see</div>
+    <h2>Your 7am briefing, up close</h2>
+    <p class="sub">This is a real briefing card from the product — score, reasoning, tailoring, and the approve button that waits for you.</p>
+    <div class="proofwrap">
+      <div class="proofcard" role="img" aria-label="Example Helm briefing card: Director of Operations at Sub-Zero Group, fit score 94, salary 115 to 135k, 28 minute commute, with tailored resume changes and an approve button">
+        <div class="pc-top">
+          <div class="pc-score">94</div>
+          <div class="pc-main">
+            <div class="pc-title">Director of Operations — Sub-Zero Group</div>
+            <div class="pc-chips"><span class="chip green">$115–135k</span><span class="chip blue">Goodyear, AZ · 28 min</span><span class="chip gray">Workday</span></div>
+            <div class="pc-why">Multi-shift plant leadership with 200+ headcount mirrors your scope. The posting itself emphasizes a strong safety culture and full P&amp;L ownership — both on your priority list.</div>
+            <div class="pc-resume">✎ Résumé tailored: <b>4 changes vs. your master</b> — P&amp;L moved to summary, safety record above the fold…</div>
+          </div>
+          <div class="pc-actions"><span class="pc-approve">✓ Approve</span><span class="pc-skip">Review · Skip</span></div>
+        </div>
+      </div>
+      <div class="prooflabels">
+        <div class="plabel"><b>The why, not just a link</b> — every match explains itself against <i>your</i> goal.</div>
+        <div class="plabel"><b>Tailored before you wake</b> — résumé emphasis and screening answers, drafted per posting from your real history.</div>
+        <div class="plabel"><b>Nothing sends itself</b> — that approve button waits for you. Your click is the only send that exists.</div>
+      </div>
+      <p class="vfoot" style="text-align:center;margin-top:16px">Illustrative demo data — your briefing is built from your résumé and goal.</p>
     </div>
   </div>
 </section>
@@ -302,20 +371,6 @@ const SUPABASE_ANON_KEY = "sb_publishable_h_NPMSfA7Z9gCdyzRb5kAQ_FH7Q0Pmv";
   </div>
 </section>
 
-<!-- HOW -->
-<section id="how">
-  <div class="wrap center">
-    <div class="kicker">How Helm works</div>
-    <h2>You sleep. It hunts. You approve.</h2>
-    <p class="sub">One 12-minute setup, then your entire job search becomes a 60-second morning ritual.</p>
-    <div class="steps">
-      <div class="stepc"><div class="num">1</div><h3>Set your course — once</h3><p>Upload your résumé, define the goal: target roles, salary floor, max commute, what good culture means to you — and the employers we must never contact (like your current one).</p><span class="tag">12 minutes, one time</span></div>
-      <div class="stepc"><div class="num">2</div><h3>Helm works the night shift</h3><p>Thousands of fresh postings scanned against your goal. The top matches get your résumé re-tailored, screening questions drafted, employer culture researched — every claim sourced from your real history, nothing invented. Ever.</p><span class="tag">While you sleep</span></div>
-      <div class="stepc"><div class="num">3</div><h3>Coffee. Review. Tap.</h3><p>Your 7am briefing: the day's ranked matches with the why, the fit score, and the finished application. Approve with one tap, skip what you don't like — then Helm fills the employer's form in your own browser and <b>the final Submit click is yours, every time.</b></p><span class="tag">60 seconds a day</span></div>
-    </div>
-  </div>
-</section>
-
 <!-- GUARANTEE BAND -->
 <div class="band">
   <div class="wrap center">
@@ -330,7 +385,7 @@ const SUPABASE_ANON_KEY = "sb_publishable_h_NPMSfA7Z9gCdyzRb5kAQ_FH7Q0Pmv";
   </div>
 </div>
 
-<!-- GUARANTEE -->
+<!-- GUARANTEE STACK (audit P2): first-briefing → 7-day → 90-day landing -->
 <div class="gsec">
   <div class="wrap">
     <div class="gbox">
@@ -340,8 +395,32 @@ const SUPABASE_ANON_KEY = "sb_publishable_h_NPMSfA7Z9gCdyzRb5kAQ_FH7Q0Pmv";
         <p>If your first week of briefings doesn't convince you, one email gets you a <b>full refund</b> — any plan, no questions. No calls, no forms, no "are you sure." We'd rather refund fast and keep your respect than argue over a fee.</p>
       </div>
     </div>
+    <div class="gbox" style="margin-top:18px">
+      <div class="seal" aria-hidden="true"><b>90</b><span>DAYS</span></div>
+      <div>
+        <h4>The Landing Guarantee <span style="font-size:12px;color:var(--teal);font-weight:700">— Sprint &amp; Pro</span></h4>
+        <p>Run your Sprint or Pro plan properly — keep your goal active and review your briefings — and if you don't have a signed offer in 90 days, <b>your next 90 days are free.</b> We only win when you land.</p>
+      </div>
+    </div>
   </div>
 </div>
+
+<!-- FOUNDER NOTE (audit H7): the only proof asset a zero-testimonial launch has -->
+<section style="padding:56px 0 8px">
+  <div class="wrap">
+    <div style="max-width:680px;margin:0 auto;border-left:4px solid var(--teal);background:#fbfefe;border-radius:0 12px 12px 0;padding:26px 30px;box-shadow:var(--shadow)">
+      <div class="kicker">A note from the founder</div>
+      <p style="color:#334155;font-size:15.5px;line-height:1.7;margin-top:10px">
+        I built Helm after my own search ate months of evenings — the applications that got responses
+        were always the carefully tailored ones, and there was never enough night to do that for every
+        posting worth chasing. During the founding cohort <b style="color:var(--navy)">I personally review
+        the matches and tailoring that go out to all 25 members</b> — that's why the cohort is capped.
+        If Helm doesn't earn its fee, one email gets your money back; I'd rather keep your respect.
+      </p>
+      <p style="margin-top:14px;color:var(--navy);font-weight:700;font-size:14.5px">— Ryan, founder <span style="color:var(--muted);font-weight:500">· hello@helmcareers.com</span></p>
+    </div>
+  </div>
+</section>
 
 <!-- PRICING (fake door) -->
 <section id="pricing">
@@ -368,24 +447,24 @@ const SUPABASE_ANON_KEY = "sb_publishable_h_NPMSfA7Z9gCdyzRb5kAQ_FH7Q0Pmv";
         <ul>
           <li>Everything in Monthly</li>
           <li><b>One payment, one search</b> — 33% less than 3 months of Monthly ($597)</li>
-          <li>Priority support</li>
-          <li>Résumé health report included</li>
+          <li><b>Landing Guarantee</b> — no signed offer in 90 days, your next 90 are free</li>
+          <li>Priority support · résumé health report included</li>
         </ul>
         <button class="btn w" onclick="track('checkout_sprint');openModal('sprint')">Start my Sprint</button>
       </div>
       <div class="plan">
-        <h3>Pro</h3><div class="for">For the fully covered search</div>
-        <div class="price">$599<span class="per">/6 months</span></div>
+        <h3>Pro</h3><div class="for">For the search you want handled end to end</div>
+        <div class="price">$799<span class="per">/90 days</span></div>
         <ul>
-          <li>Everything in Sprint</li>
-          <li><b>Every add-on included:</b> résumé rebuild, LinkedIn overhaul, interview-prep briefs, salary-negotiation toolkit, recruiter outreach kit</li>
-          <li>Half the price of 6 months of Monthly ($1,194)</li>
-          <li>One payment covers up to six months of searching</li>
+          <li>Everything in Sprint, including the <b>Landing Guarantee</b></li>
+          <li><b>The full concierge stack:</b> ground-up résumé rebuild, LinkedIn overhaul, interview-prep brief before every interview, salary-negotiation toolkit at offer, recruiter outreach kit</li>
+          <li>Bought separately, the stack runs ≈ $650 — here it's built into your search</li>
+          <li>Founding-cohort concierge: a human reviews every package before it reaches you</li>
         </ul>
         <button class="btn ghost w" onclick="track('checkout_pro');openModal('pro')">Go Pro</button>
       </div>
     </div>
-    <p class="sub" style="font-size:13px;margin-top:22px">Every plan carries a <b>7-day no-questions money-back guarantee</b>. Your data is yours — export or delete it anytime.</p>
+    <p class="sub" style="font-size:13px;margin-top:22px">Every plan carries a <b>7-day no-questions money-back guarantee</b>; Sprint and Pro add the <b>90-day Landing Guarantee</b>. Your data is yours — export or delete it anytime.</p>
   </div>
 </section>
 
@@ -400,6 +479,7 @@ const SUPABASE_ANON_KEY = "sb_publishable_h_NPMSfA7Z9gCdyzRb5kAQ_FH7Q0Pmv";
       <details><summary>Is this one of those spam bots that gets accounts banned?</summary><div class="a">No — it's designed as the opposite. The ban-risk tools submit applications autonomously, in bulk, under your identity. Helm never submits anything. It prepares everything and <b>you</b> approve each application individually — designed so a human (you) performs every send, the opposite of the bulk-bot pattern platforms ban. There is no bulk-blast mode. That's a design decision, not a setting.</div></details>
       <details><summary>What makes this different from LazyApply, LoopCV, and the other cheap tools?</summary><div class="a">Volume versus quality. Those tools fire one generic résumé at hundreds of jobs — that's why they're $20/month — and why recruiters have learned to spot and skip the pattern. Helm tailors every single application to the specific posting, from your real experience, and sends only what you approve. Ten excellent applications beat five hundred spam ones — especially at the $100k+ level, where your name and reputation are on every submission.</div></details>
       <details><summary>What if the AI makes something up on my application?</summary><div class="a">This is the core engineering rule of the product: <b>Helm never guesses.</b> If a posting asks for something that isn't in your résumé or answers — a certification date, a clearance, a skill — it comes back to you as a question, never a fabricated answer. Applications with open questions are locked and cannot be approved or batch-sent until you answer.</div></details>
+      <details><summary>How does the Landing Guarantee work?</summary><div class="a">Simple: run your Sprint or Pro plan properly — keep your goal active and review your briefings — and if you don't have a signed offer by day 90, <b>your next 90 days are free.</b> No forms to fill, no fine-print gymnastics; if you were in the game and it didn't land, we stay in it with you at no charge. (It doesn't stack with abandoning the search — the briefings you approve are the mechanism.)</div></details>
       <details><summary>What if I try it and it's just not for me?</summary><div class="a">Then you pay nothing. Every plan comes with a <b>7-day no-questions money-back guarantee</b> — one email, full refund, no retention call, no exit survey. A week of briefings is enough to know if Helm is for you, and we'd rather refund fast and keep your respect than argue over $399.</div></details>
       <details><summary>What if I land a job in week two?</summary><div class="a">Congratulations — that's the outcome you paid for, arriving months early. A faster landing is worth far more than any unused plan time: every month saved is a month of the new salary in your pocket. Monthly cancels in one click; Sprint and Pro are single payments — no recurring billing to escape.</div></details>
       <details><summary>Who sees my résumé and data?</summary><div class="a">You, and the pipeline that tailors your applications. Your data is never sold, never used to train models for other companies, never shared with employers without an approval from you. Export or delete everything, anytime, from your account page.</div></details>
@@ -440,30 +520,27 @@ const SUPABASE_ANON_KEY = "sb_publishable_h_NPMSfA7Z9gCdyzRb5kAQ_FH7Q0Pmv";
         <div class="pchoice" role="radiogroup" aria-label="Founding plan">
           <button type="button" class="pc" id="pc-monthly" role="radio" onclick="selectPlan('monthly')"><span class="pn">MONTHLY</span><span class="pp">$99</span><span class="pu">first month</span><span class="pr">$199</span></button>
           <button type="button" class="pc" id="pc-sprint" role="radio" onclick="selectPlan('sprint')"><span class="pn">SPRINT</span><span class="pp">$199</span><span class="pu">90 days</span><span class="pr">$399</span></button>
-          <button type="button" class="pc" id="pc-pro" role="radio" onclick="selectPlan('pro')"><span class="pn">PRO</span><span class="pp">$299</span><span class="pu">6 mo · all add-ons</span><span class="pr">$599</span></button>
+          <button type="button" class="pc" id="pc-pro" role="radio" onclick="selectPlan('pro')"><span class="pn">PRO</span><span class="pp">$399</span><span class="pu">90 days · concierge</span><span class="pr">$799</span></button>
         </div>
       </div>
 
       <form id="found-form" onsubmit="return submitForm(event)">
         <label><b>EMAIL</b><input type="email" id="ff-email" placeholder="you@example.com" autocomplete="email"><div class="m-err" role="alert" id="ff-email-err">We need a valid email to hold your spot.</div></label>
-        <label><b>CURRENT ROLE</b><input type="text" id="ff-role" placeholder="e.g. Operations Manager" autocomplete="organization-title"><div class="m-err" role="alert" id="ff-role-err">Helps us tune your matches before day one.</div></label>
-        <div class="fgroup"><b>TARGET SALARY</b>
+        <label><b>CURRENT ROLE <span class="opt">optional — tunes your matches</span></b><input type="text" id="ff-role" placeholder="e.g. Operations Manager" autocomplete="organization-title"></label>
+        <div class="fgroup"><b>TARGET SALARY <span class="opt">optional</span></b>
           <div class="pills" id="ff-salary" role="radiogroup" aria-label="Target salary">
             <button type="button" class="pill" onclick="pickPill('ff-salary',this)">$100–130k</button><button type="button" class="pill" onclick="pickPill('ff-salary',this)">$130–160k</button><button type="button" class="pill" onclick="pickPill('ff-salary',this)">$160k+</button><button type="button" class="pill" onclick="pickPill('ff-salary',this)">Under $100k</button>
           </div>
-          <div class="m-err" role="alert" id="ff-salary-err">Tap the band you're targeting.</div>
         </div>
-        <div class="fgroup"><b>WHERE ARE YOU IN YOUR SEARCH?</b>
+        <div class="fgroup"><b>WHERE ARE YOU IN YOUR SEARCH? <span class="opt">optional</span></b>
           <div class="pills" id="ff-urgency" role="radiogroup" aria-label="Search stage">
             <button type="button" class="pill" onclick="pickPill('ff-urgency',this)">Actively applying</button><button type="button" class="pill" onclick="pickPill('ff-urgency',this)">Quietly looking</button><button type="button" class="pill" onclick="pickPill('ff-urgency',this)">Just curious</button>
           </div>
-          <div class="m-err" role="alert" id="ff-urgency-err">Where you are in the search matters.</div>
         </div>
-        <div class="fgroup"><b id="wtp-label">IF HELM WORKS AS DESCRIBED, IS THE FOUNDING PRICE A PRICE YOU'D PAY?</b>
+        <div class="fgroup"><b id="wtp-label">IF HELM WORKS AS DESCRIBED, IS THE FOUNDING PRICE A PRICE YOU'D PAY? <span class="opt">one tap — helps us most</span></b>
           <div class="pills" id="ff-wtp" role="radiogroup" aria-label="Would you pay the founding price">
             <button type="button" class="pill" onclick="pickPill('ff-wtp',this)">Yes, if it delivers</button><button type="button" class="pill" onclick="pickPill('ff-wtp',this)">It's a little steep</button><button type="button" class="pill" onclick="pickPill('ff-wtp',this)">Honestly, no</button>
           </div>
-          <div class="m-err" role="alert" id="ff-wtp-err">One quick tap — it's the answer that helps us most.</div>
         </div>
         <button type="submit" class="btn w" id="ff-submit">Reserve my spot — no payment today</button>
         <p class="finger">Reserving is free — your founding rate is only charged if you join when doors open, and every plan has a 7-day money-back guarantee. No spam; one email, and you can walk away.</p>
@@ -542,7 +619,7 @@ var currentPlan = "sprint";
 var OFFERS = {
   monthly: { wtp: "$99 FOR YOUR FIRST MONTH" },
   sprint:  { wtp: "$199 FOR 90 DAYS" },
-  pro:     { wtp: "$299 FOR 6 MONTHS" }
+  pro:     { wtp: "$399 FOR 90 DAYS" }
 };
 function selectPlan(key){
   if (!OFFERS[key]) key = "sprint";
@@ -633,13 +710,18 @@ function submitForm(ev){
   var salary = pillVals["ff-salary"] || "";
   var urgency = pillVals["ff-urgency"] || "";
   var wtp = pillVals["ff-wtp"] || "";
+  // Audit H3: a FREE reservation needs an email and a plan — nothing else is
+  // allowed to block it. Everything other than email is optional enrichment.
   var okEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
   setErr("ff-email", !okEmail);
-  setErr("ff-role", !role);
-  setErr("ff-salary", !salary);
-  setErr("ff-urgency", !urgency);
-  setErr("ff-wtp", !wtp);
-  if (!okEmail || !role || !salary || !urgency || !wtp) return false;
+  if (!okEmail){
+    // Scroll-to-first-error (mobile especially): the failing field may be
+    // scrolled out of view inside the modal.
+    var bad = document.getElementById("ff-email");
+    try{ bad.scrollIntoView({ behavior: "smooth", block: "center" }); }catch(e){}
+    bad.focus();
+    return false;
+  }
 
   var payload = {
     email: email,
