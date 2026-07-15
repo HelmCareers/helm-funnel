@@ -28,6 +28,25 @@ const SUPABASE_ANON_KEY = "sb_publishable_h_NPMSfA7Z9gCdyzRb5kAQ_FH7Q0Pmv";
 </script>
 <!-- Optional extra analytics: <script defer data-domain="helmcareers.com" src="https://plausible.io/js/script.tagged-events.js"></script> -->
 
+<!-- ============ META PIXEL ============
+Paste the Helm Pixel ID below (Meta Events Manager → Data Sources) and the
+pixel goes live on the next deploy. Empty ID = pixel fully disabled — no
+script loads, nothing fires. Standard events are mapped in track():
+reserve success → Lead, plan clicks → InitiateCheckout.
+===================================== -->
+<script>
+const META_PIXEL_ID = ""; // e.g. "1234567890123456"
+if (META_PIXEL_ID){
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', META_PIXEL_ID);
+  fbq('track', 'PageView');
+}
+</script>
+
 <style>
   :root {
     --navy:#0b2545; --teal:#0e7c7b; --teal-bright:#17b3a3; --paper:#f7f9fb;
@@ -501,7 +520,8 @@ const SUPABASE_ANON_KEY = "sb_publishable_h_NPMSfA7Z9gCdyzRb5kAQ_FH7Q0Pmv";
 <footer>
   <div class="wrap">
     <div>© 2026 Helm — opening soon to a 25-member founding cohort. Your job search, handled. You keep the wheel.<br>Nothing is ever submitted without your approval. We never guess — missing info becomes a question, not a fabrication.</div>
-    <div>Contact: hello@helmcareers.com</div>
+    <div>Contact: hello@helmcareers.com<br>
+      <a href="/privacy.html" style="color:#8fa3ba">Privacy Policy</a> · <a href="/terms.html" style="color:#8fa3ba">Terms of Service</a></div>
   </div>
 </footer>
 
@@ -598,6 +618,24 @@ function track(name, props){
   var p = Object.assign({ sid: SID }, UTM, props || {});
   sbInsert("funnel_events", { event: name, props: p });
   try{ if (window.plausible) window.plausible(name, { props: p }); }catch(e){}
+  // Meta Pixel standard-event mapping (no-op unless META_PIXEL_ID is set):
+  // a successful founding reserve is the test's conversion → Lead; a plan
+  // click is purchase intent → InitiateCheckout. Value/currency give Meta's
+  // optimizer a signal about which plans the leads clicked.
+  try{
+    if (window.fbq){
+      if (name === "reserve" && p.status === "success"){
+        fbq("track", "Lead", { content_name: p.plan || "unknown" });
+      } else if (name.indexOf("checkout_") === 0){
+        var PLAN_VALUE = { checkout_monthly: 199, checkout_sprint: 399, checkout_pro: 799 };
+        fbq("track", "InitiateCheckout", {
+          content_name: name.slice(9),
+          value: PLAN_VALUE[name] || 0,
+          currency: "USD"
+        });
+      }
+    }
+  }catch(e){}
   try{ console.log("[track]", name, p); }catch(e){}
 }
 track("pageview");
