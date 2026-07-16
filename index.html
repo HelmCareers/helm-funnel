@@ -280,6 +280,10 @@ src="https://www.facebook.com/tr?id=1525865505469906&ev=PageView&noscript=1"
   @media(max-width:420px){
     .hero h1{font-size:27px}
     .anchor-line{font-size:14px}
+    /* modal pill groups: one row each — compact segments instead of a
+       wrapping cloud, so the sheet stays short with the keyboard up */
+    .pills{flex-wrap:nowrap;gap:5px}
+    .pill{padding:10px 9px;font-size:11.5px;white-space:nowrap;flex:0 1 auto;letter-spacing:-.1px}
     /* plan picker: stack as tappable rows instead of 3 cramped columns */
     .pchoice{grid-template-columns:1fr;gap:7px}
     .pc{display:flex;align-items:baseline;justify-content:flex-start;gap:9px;text-align:left;padding:12px 14px;min-height:46px}
@@ -563,12 +567,12 @@ src="https://www.facebook.com/tr?id=1525865505469906&ev=PageView&noscript=1"
         </div>
         <div class="fgroup"><b>WHERE ARE YOU IN YOUR SEARCH? <span class="opt">optional</span></b>
           <div class="pills" id="ff-urgency" role="radiogroup" aria-label="Search stage">
-            <button type="button" class="pill" onclick="pickPill('ff-urgency',this)">Actively applying</button><button type="button" class="pill" onclick="pickPill('ff-urgency',this)">Quietly looking</button><button type="button" class="pill" onclick="pickPill('ff-urgency',this)">Just curious</button>
+            <button type="button" class="pill" onclick="pickPill('ff-urgency',this)">Applying now</button><button type="button" class="pill" onclick="pickPill('ff-urgency',this)">Quietly looking</button><button type="button" class="pill" onclick="pickPill('ff-urgency',this)">Just curious</button>
           </div>
         </div>
         <div class="fgroup"><b id="wtp-label">IF HELM WORKS AS DESCRIBED, IS THE FOUNDING PRICE A PRICE YOU'D PAY? <span class="opt">one tap — helps us most</span></b>
           <div class="pills" id="ff-wtp" role="radiogroup" aria-label="Would you pay the founding price">
-            <button type="button" class="pill" onclick="pickPill('ff-wtp',this)">Yes, if it delivers</button><button type="button" class="pill" onclick="pickPill('ff-wtp',this)">It's a little steep</button><button type="button" class="pill" onclick="pickPill('ff-wtp',this)">Honestly, no</button>
+            <button type="button" class="pill" onclick="pickPill('ff-wtp',this)">Yes, if it delivers</button><button type="button" class="pill" onclick="pickPill('ff-wtp',this)">A bit steep</button><button type="button" class="pill" onclick="pickPill('ff-wtp',this)">Honestly, no</button>
           </div>
         </div>
         <button type="submit" class="btn w" id="ff-submit">Reserve my spot — no payment today</button>
