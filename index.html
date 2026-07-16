@@ -268,6 +268,11 @@ src="https://www.facebook.com/tr?id=1525865505469906&ev=PageView&noscript=1"
     .band{padding:44px 0}
     .btn.big{font-size:16px;padding:15px 22px}
     .modal{padding:20px 18px;border-radius:14px}
+    /* Phone keyboards: keep the modal pinned to the top of the (shrunken)
+       visual viewport instead of re-centering it under the keyboard — the
+       focused field stays visible and the sheet doesn't jump around. */
+    .overlay{align-items:flex-start;padding:10px}
+    .modal{margin-top:6px;max-height:calc(100dvh - 22px)}
     summary{padding:16px 16px}
     details .a{padding:0 16px 16px}
   }
@@ -536,8 +541,8 @@ src="https://www.facebook.com/tr?id=1525865505469906&ev=PageView&noscript=1"
 
     <div id="m-form">
       <div class="kicker">Founding cohort — opening soon</div>
-      <h3 id="m-title">Reserve your founding spot — 50% off, locked before doors open.</h3>
-      <p class="mp">Founding members get <b>50% off</b> — off the full price of Sprint or Pro, or off your first month on Monthly. <b>Reserving is free and holds your place</b> — you're only charged if you join at the door.</p>
+      <h3 id="m-title">Reserve your founding spot: 50% off, locked in before doors open.</h3>
+      <p class="mp">Founding members get <b>50% off</b> the full price of Sprint or Pro, or their first month of Monthly. <b>Reserving is free</b> and holds your place. You're only charged if you decide to join when doors open.</p>
       <div class="spots"><span aria-hidden="true">⏳</span><span><b>25</b> founding spots, reserved in order — if the cohort fills, reserving still locks founding pricing as next in line</span></div>
 
       <div class="fgroup" style="margin-top:12px"><b>PICK YOUR PLAN (SWITCHABLE AT THE DOOR)</b>
@@ -703,9 +708,20 @@ function openModal(source){
   }
   document.getElementById("overlay").classList.add("on");
   document.body.style.overflow = "hidden";
+  // Autofocus only with a physical keyboard. On phones, focusing on open
+  // pops the keyboard instantly and buries the modal before it's been read.
   var em = document.getElementById("ff-email");
-  if (em) setTimeout(function(){ em.focus(); }, 60);
+  if (em && window.matchMedia && matchMedia("(pointer:fine)").matches){
+    setTimeout(function(){ em.focus(); }, 60);
+  }
 }
+// Phone keyboards cover the lower half of the screen; when a field gains
+// focus, nudge it into the visible part of the scrollable modal.
+document.querySelectorAll(".modal input, .modal select").forEach(function(el){
+  el.addEventListener("focus", function(){
+    setTimeout(function(){ try{ el.scrollIntoView({ block: "center", behavior: "smooth" }); }catch(e){} }, 250);
+  });
+});
 function closeModal(){
   document.getElementById("overlay").classList.remove("on");
   document.body.style.overflow = "";
