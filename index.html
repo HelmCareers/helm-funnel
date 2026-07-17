@@ -125,35 +125,6 @@ src="https://www.facebook.com/tr?id=1525865505469906&ev=PageView&noscript=1"
 
   /* how */
   .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:38px}
-  .stepc{border:1px solid var(--line);border-radius:12px;padding:26px;box-shadow:var(--shadow);position:relative}
-  .stepc .num{position:absolute;top:-14px;left:22px;background:var(--teal);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px}
-  .stepc h3{color:var(--navy);font-size:16.5px;margin-top:4px}
-  .stepc p{color:var(--muted);font-size:14px;margin-top:9px}
-  .stepc .tag{display:inline-block;margin-top:12px;font-size:11px;font-weight:700;color:var(--teal);background:#eef7f7;border-radius:999px;padding:3px 11px}
-
-  /* product proof (audit H1) */
-  .proofwrap{max-width:760px;margin:40px auto 0;text-align:left}
-  .proofcard{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 8px 30px rgba(11,37,69,.12);padding:22px;position:relative}
-  .proofcard:before{content:"TOMORROW'S BRIEFING — 3 MATCHES, 2 READY";display:block;font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--faint);margin-bottom:14px}
-  .pc-top{display:flex;gap:16px;align-items:flex-start}
-  .pc-score{width:46px;height:46px;border-radius:50%;background:var(--teal);color:#fff;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-  .pc-main{min-width:0;flex:1}
-  .pc-title{font-weight:700;color:var(--navy);font-size:16px}
-  .pc-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
-  .chip{font-size:11.5px;font-weight:700;border-radius:999px;padding:3px 10px}
-  .chip.green{background:#ecfdf5;color:#047857}
-  .chip.blue{background:#eff6ff;color:#1d4ed8}
-  .chip.gray{background:#f1f5f9;color:#475569}
-  .pc-why{color:#475569;font-size:13.5px;margin-top:10px;line-height:1.6}
-  .pc-resume{color:#334155;font-size:12.5px;margin-top:10px;background:var(--paper);border:1px dashed var(--line);border-radius:8px;padding:8px 12px}
-  .pc-resume b{color:var(--navy)}
-  .pc-actions{display:flex;flex-direction:column;gap:8px;align-items:flex-end;flex-shrink:0}
-  .pc-approve{background:var(--teal);color:#fff;font-weight:700;font-size:13.5px;border-radius:8px;padding:9px 18px;white-space:nowrap}
-  .pc-skip{color:var(--faint);font-size:11.5px}
-  .prooflabels{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:20px}
-  .plabel{font-size:12.5px;color:#475569;line-height:1.55;border-top:2px solid var(--teal);padding-top:9px}
-  .plabel b{color:var(--navy)}
-  @media(max-width:640px){.pc-top{flex-wrap:wrap}.pc-actions{flex-direction:row;align-items:center;width:100%;justify-content:flex-start}}
 
   /* guarantee band */
   .band{background:var(--navy);color:#fff;padding:54px 0}
@@ -291,6 +262,95 @@ src="https://www.facebook.com/tr?id=1525865505469906&ev=PageView&noscript=1"
     .pc .pu{margin-left:auto}
     .headcta{font-size:12px;padding:8px 12px}
   }
+
+  /* ===== interactive "How Helm works" walkthrough (wt-*) ===== */
+  .wt-steps{display:flex;gap:6px;justify-content:center;margin-top:34px;flex-wrap:wrap}
+  .wt-tab{border:1.5px solid var(--line);background:#fff;border-radius:99px;padding:9px 14px;font-size:13px;font-weight:700;color:var(--muted);cursor:pointer;transition:all .15s;font-family:inherit}
+  .wt-tab .wt-n{display:inline-flex;width:20px;height:20px;border-radius:50%;background:var(--paper);color:var(--muted);font-size:11px;align-items:center;justify-content:center;margin-right:7px;font-weight:800}
+  .wt-tab.on{border-color:var(--teal);color:var(--teal);background:#fbfefe}
+  .wt-tab.on .wt-n{background:var(--teal);color:#fff}
+  .wt-tab.seen .wt-n{background:#dcfce7;color:#15803d}
+  .wt-stage{margin-top:26px;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:var(--shadow);display:grid;grid-template-rows:auto 1fr;align-items:start;text-align:center}
+  .wt-sample-row{text-align:right;margin-bottom:6px;grid-row:1;grid-column:1}
+  .wt-sample-chip{display:inline-block;font-size:10px;font-weight:800;letter-spacing:1px;color:var(--amber);background:#fff7ed;border:1px solid #fed7aa;border-radius:99px;padding:4px 10px}
+  .wt-panel{grid-row:2;grid-column:1;visibility:hidden;animation:wtFade .25s ease}
+  .wt-panel.on{visibility:visible}
+  @keyframes wtFade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .wt-panel h3{color:var(--navy);font-size:20px}
+  .wt-cap{color:var(--muted);font-size:14.5px;margin:6px auto 0;max-width:560px}
+  .wt-law{margin-top:14px;font-size:12.5px;color:var(--teal);font-weight:700}
+  .wt-screen{margin:18px auto 0;background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow);max-width:640px;text-align:left}
+  .wt-shead{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:14px}
+  .wt-slogo{font-weight:800;color:var(--navy);letter-spacing:-.3px}.wt-slogo span{color:var(--teal-bright)}
+  .wt-stitle{font-size:12px;color:var(--faint)}
+  .wt-frow{margin-top:12px}
+  .wt-frow b{display:block;font-size:11px;letter-spacing:.6px;color:var(--navy);margin-bottom:6px}
+  .wt-chips{display:flex;gap:7px;flex-wrap:wrap}
+  .wt-chip{border:1.5px solid var(--teal);color:var(--teal);border-radius:99px;padding:6px 13px;font-size:13px;font-weight:600;background:#fbfefe}
+  .wt-chip.wt-x{border-color:#fca5a5;color:#b91c1c;background:#fef2f2}
+  .wt-fauxinput{border:1px solid #cbd5e1;border-radius:8px;padding:9px 12px;font-size:14px;color:var(--ink);background:#fff;max-width:280px}
+  .wt-toggle{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+  .wt-knob{width:34px;height:20px;border-radius:99px;background:var(--teal);position:relative}
+  .wt-knob:after{content:"";position:absolute;right:2px;top:2px;width:16px;height:16px;border-radius:50%;background:#fff}
+  .wt-hunt{background:var(--navy);border-radius:14px;color:#fff;padding:22px;margin:18px auto 0;max-width:640px;text-align:left}
+  .wt-htime{font-size:12px;color:#8fa3ba;letter-spacing:1px}
+  .wt-hrow{display:flex;justify-content:space-between;align-items:baseline;padding:11px 0;border-bottom:1px dashed rgba(255,255,255,.14);font-size:14.5px;color:#c7d4e4}
+  .wt-hrow:last-child{border-bottom:none}
+  .wt-hrow b{font-size:22px;color:var(--teal-bright);letter-spacing:-.5px}
+  .wt-pulsedot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--teal-bright);margin-right:8px;animation:wtPl 1.6s infinite}
+  @keyframes wtPl{0%,100%{opacity:1}50%{opacity:.25}}
+  .wt-mcard{border:1px solid var(--line);border-radius:12px;padding:16px;margin-top:12px;display:flex;gap:14px;align-items:flex-start;background:#fff;text-align:left}
+  .wt-score{flex-shrink:0;width:46px;height:46px;border-radius:50%;background:var(--teal);color:#fff;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center}
+  .wt-mmain{flex:1;min-width:0}
+  .wt-mtitle{font-weight:700;color:var(--navy);font-size:15px}
+  .wt-mchips{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+  .wt-mchip{font-size:11.5px;font-weight:700;border-radius:6px;padding:3px 8px}
+  .wt-mchip.wt-g{background:#ecfdf5;color:#047857}.wt-mchip.wt-b{background:#eff6ff;color:#1d4ed8}
+  .wt-mwhy{font-size:13px;color:var(--muted);margin-top:8px}
+  .wt-approve{flex-shrink:0;border:none;background:var(--teal);color:#fff;font-weight:700;font-size:13px;border-radius:8px;padding:9px 14px;cursor:pointer;font-family:inherit;transition:background .15s;animation:wtGlow 2.2s ease-in-out infinite}
+  .wt-approve.wt-ok{background:#059669;animation:none}
+  @keyframes wtGlow{0%,100%{box-shadow:0 0 0 0 rgba(23,179,163,0)}50%{box-shadow:0 0 0 7px rgba(23,179,163,.25)}}
+  .wt-peek{position:relative;max-height:64px;overflow:hidden;margin-top:12px}
+  .wt-peek .wt-mcard{margin-top:0}
+  .wt-peek:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0) 0%,#fff 92%)}
+  .wt-more{text-align:center;font-size:12px;color:var(--faint);margin-top:8px}
+  .wt-skip{display:block;margin-top:6px;font-size:12px;color:var(--faint);text-align:center}
+  .wt-split{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px auto 0;max-width:760px;text-align:left}
+  .wt-doc{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px;box-shadow:var(--shadow);font-size:10.5px}
+  .wt-dname{text-align:center;color:#1f3864;font-weight:800;font-size:15px}
+  .wt-dhead{text-align:center;color:#595959;font-size:10px;margin-top:2px}
+  .wt-dsec{color:#1f3864;font-weight:800;border-bottom:1.5px solid #1f3864;margin-top:10px;padding-bottom:2px;letter-spacing:.8px;font-size:9.5px}
+  .wt-doc p{color:#374151;margin-top:5px;line-height:1.5}
+  .wt-dlist{margin:5px 0 0 14px;color:#374151}
+  .wt-dlist li{margin-top:2px}
+  .wt-qa{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px;box-shadow:var(--shadow)}
+  .wt-q{font-size:13px;font-weight:700;color:var(--navy)}
+  .wt-a{font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.55}
+  .wt-needs{margin-top:12px;border:1.5px solid #fbbf24;background:#fffbeb;border-radius:10px;padding:12px}
+  .wt-needs .wt-q{color:#92400e;font-size:12.5px}
+  .wt-needs .wt-a{font-size:12px;color:#a16207;margin-top:4px}
+  .wt-diffs{font-size:12.5px;color:var(--muted);margin-top:10px;text-align:left}
+  .wt-diffs b{color:var(--teal)}
+  .wt-bigstat{display:flex;gap:14px;margin:18px auto 0;flex-wrap:wrap;max-width:640px}
+  .wt-bs{flex:1;min-width:150px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center;box-shadow:var(--shadow)}
+  .wt-bs b{display:block;font-size:24px;color:var(--teal);letter-spacing:-.5px}
+  .wt-bs span{font-size:12px;color:var(--muted)}
+  .wt-bs.wt-navy{background:var(--navy);border-color:var(--navy)}
+  .wt-bs.wt-navy b{color:var(--teal-bright)}.wt-bs.wt-navy span{color:#c7d4e4}
+  .wt-navrow{display:flex;justify-content:space-between;align-items:center;margin:18px auto 0;max-width:760px}
+  .wt-navbtn{border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:8px;padding:10px 18px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
+  .wt-navbtn.wt-primary{background:var(--teal);border-color:var(--teal);color:#fff;animation:wtGlow 2.6s ease-in-out infinite}
+  .wt-navbtn:disabled{opacity:.35;cursor:default;animation:none}
+  .wt-finale{margin-top:20px;border-top:1px dashed var(--line);padding-top:18px;text-align:center}
+  .wt-fbtns{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;justify-content:center}
+  @media(max-width:700px){
+    .wt-split{grid-template-columns:1fr}
+    .wt-doc{font-size:12px}
+    .wt-dhead{font-size:11px}
+    .wt-dsec{font-size:11px}
+    .wt-stage{padding:18px 14px}
+    .wt-tab{padding:8px 10px;font-size:12px}
+  }
 </style>
 </head>
 <body>
@@ -335,41 +395,127 @@ src="https://www.facebook.com/tr?id=1525865505469906&ev=PageView&noscript=1"
   <div class="wrap center">
     <div class="kicker">How Helm works</div>
     <h2>You sleep. It hunts. You approve.</h2>
-    <p class="sub">One 12-minute setup, then your entire job search becomes a 60-second morning ritual.</p>
-    <div class="steps">
-      <div class="stepc"><div class="num">1</div><h3>Set your course — once</h3><p>Upload your résumé, define the goal: target roles, salary floor, max commute, what good culture means to you — and the employers we must never contact (like your current one).</p><span class="tag">12 minutes, one time</span></div>
-      <div class="stepc"><div class="num">2</div><h3>Helm works the night shift</h3><p>Every fresh posting from the major job feeds, scored against your goal. The top matches get your résumé re-tailored, screening questions drafted, employer intel pulled from the posting — every claim sourced from your real history, nothing invented. Ever.</p><span class="tag">While you sleep</span></div>
-      <div class="stepc"><div class="num">3</div><h3>Coffee. Review. Tap.</h3><p>Your 7am briefing: the day's ranked matches with the why, the fit score, and the finished application. Approve with one tap, skip what you don't like — then Helm fills the employer's form in your own browser and <b>the final Submit click is yours, every time.</b></p><span class="tag">60 seconds a day</span></div>
-    </div>
-  </div>
-</section>
+    <p class="sub">Set your course once. Every night, Helm finds your best-fit roles and writes the applications. Every morning, you approve in about 60 seconds. Step through it:</p>
 
-<!-- PRODUCT PROOF (audit H1): show the invisible product — an annotated
-     replica of the actual morning-briefing card, pure HTML/CSS. -->
-<section class="proof" style="background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <div class="wrap center">
-    <div class="kicker">What you'll actually see</div>
-    <h2>Your 7am briefing, up close</h2>
-    <p class="sub">This is a real briefing card from the product — score, reasoning, tailoring, and the approve button that waits for you.</p>
-    <div class="proofwrap">
-      <div class="proofcard" role="img" aria-label="Example Helm briefing card: Director of Operations at Sub-Zero Group, fit score 94, salary 115 to 135k, 28 minute commute, with tailored resume changes and an approve button">
-        <div class="pc-top">
-          <div class="pc-score">94</div>
-          <div class="pc-main">
-            <div class="pc-title">Director of Operations — Sub-Zero Group</div>
-            <div class="pc-chips"><span class="chip green">$115–135k</span><span class="chip blue">Goodyear, AZ · 28 min</span><span class="chip gray">Workday</span></div>
-            <div class="pc-why">Multi-shift plant leadership with 200+ headcount mirrors your scope. The posting itself emphasizes a strong safety culture and full P&amp;L ownership — both on your priority list.</div>
-            <div class="pc-resume">✎ Résumé tailored: <b>4 changes vs. your master</b> — P&amp;L moved to summary, safety record above the fold…</div>
+    <div class="wt-steps" id="wt-steps"></div>
+
+    <div class="wt-stage" id="wt-stage">
+      <div class="wt-sample-row"><span class="wt-sample-chip">SAMPLE DATA</span></div>
+
+      <div class="wt-panel" data-step="0">
+        <h3>1 · Set your course once, in less than 10 minutes</h3>
+        <p class="wt-cap">Tell Helm what a great next role looks like: titles, pay floor, where you'll work, and who never to contact. Upload your résumé and you're done — this is the last form you fill out.</p>
+        <div class="wt-screen">
+          <div class="wt-shead"><span class="wt-slogo">HELM<span>.</span></span><span class="wt-stitle">Goal setup · step 2 of 3</span></div>
+          <div class="wt-frow"><b>TARGET ROLES</b><div class="wt-chips"><span class="wt-chip">Director of Operations</span><span class="wt-chip">Plant Manager</span><span class="wt-chip">Sr. Operations Manager</span></div></div>
+          <div class="wt-frow"><b>PAY FLOOR</b><div class="wt-fauxinput">$120,000 / year</div></div>
+          <div class="wt-frow"><b>LOCATION</b><div class="wt-chips"><span class="wt-chip">Within 45 min of Gilbert, AZ</span></div><div class="wt-toggle" style="margin-top:8px"><span class="wt-knob"></span> Also include fully-remote roles</div></div>
+          <div class="wt-frow"><b>NEVER CONTACT</b><div class="wt-chips"><span class="wt-chip wt-x">Current employer</span><span class="wt-chip wt-x">Acme Logistics</span></div></div>
+        </div>
+        <div class="wt-law">Your blocklist is absolute — Helm never surfaces or approaches anyone on it.</div>
+      </div>
+
+      <div class="wt-panel" data-step="1">
+        <h3>2 · Helm hunts while you sleep</h3>
+        <p class="wt-cap">Every night, Helm scans the newest real postings from licensed job feeds and scores each one against your goal — pay, commute, role fit, dealbreakers — keeping only the handful worth your time. A typical night:</p>
+        <div class="wt-hunt">
+          <div class="wt-htime"><span class="wt-pulsedot"></span>TONIGHT · 4:00 AM</div>
+          <div class="wt-hrow"><span>New postings scanned</span><b>2,340</b></div>
+          <div class="wt-hrow"><span>Near your goal (right title, right region)</span><b>96</b></div>
+          <div class="wt-hrow"><span>Matched (worth your attention)</span><b>6</b></div>
+          <div class="wt-hrow"><span>Sent anywhere without your approval</span><b>0</b></div>
+        </div>
+        <div class="wt-law">Real postings only, from licensed sources — if the hunt comes up dry, Helm says so. It never pads the list.</div>
+      </div>
+
+      <div class="wt-panel" data-step="2">
+        <h3>3 · Wake up to your briefing</h3>
+        <p class="wt-cap">Each match arrives scored and explained — salary, commute, and why it fits <i>you</i>. Try it: approve one.</p>
+        <div class="wt-screen">
+          <div class="wt-shead"><span class="wt-slogo">HELM<span>.</span></span><span class="wt-stitle">Thursday briefing — 6 matches</span></div>
+          <div class="wt-mcard">
+            <div class="wt-score">94</div>
+            <div class="wt-mmain">
+              <div class="wt-mtitle">Director of Operations — Sub-Zero Group</div>
+              <div class="wt-mchips"><span class="wt-mchip wt-g">$115–135k</span><span class="wt-mchip wt-b">Goodyear, AZ · 28 min</span></div>
+              <div class="wt-mwhy">• Multi-shift leadership matches your 200+ headcount scope<br>• Full P&amp;L ownership — top of your priority list</div>
+            </div>
+            <div><button type="button" class="wt-approve" onclick="wtApprove(this)">✓ Approve</button><span class="wt-skip">Review · Skip</span></div>
           </div>
-          <div class="pc-actions"><span class="pc-approve">✓ Approve</span><span class="pc-skip">Review · Skip</span></div>
+          <div class="wt-mcard">
+            <div class="wt-score">91</div>
+            <div class="wt-mmain">
+              <div class="wt-mtitle">Senior Ops Manager, Fulfillment — Chewy</div>
+              <div class="wt-mchips"><span class="wt-mchip wt-g">$108–128k</span><span class="wt-mchip wt-b">Phoenix, AZ · 34 min</span></div>
+              <div class="wt-mwhy">• Promote-from-within culture — your stated priority<br>• +38% peak throughput leads the tailored summary</div>
+            </div>
+            <div><button type="button" class="wt-approve" onclick="wtApprove(this)">✓ Approve</button><span class="wt-skip">Review · Skip</span></div>
+          </div>
+          <div class="wt-peek" aria-hidden="true">
+            <div class="wt-mcard">
+              <div class="wt-score">88</div>
+              <div class="wt-mmain">
+                <div class="wt-mtitle">Regional Operations Director — Shamrock Foods</div>
+                <div class="wt-mchips"><span class="wt-mchip wt-g">$120–145k</span><span class="wt-mchip wt-b">Phoenix, AZ · 41 min</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="wt-more">…3 more in this morning's briefing</div>
+        </div>
+        <div class="wt-law">Skip costs nothing — skipped roles teach Helm what to stop bringing you.</div>
+      </div>
+
+      <div class="wt-panel" data-step="3">
+        <h3>4 · Every match arrives ready to send</h3>
+        <p class="wt-cap">Not a template swap: your real experience, re-weighted for this posting, in a recruiter-grade document — plus every screening question drafted. And when something isn't on your résumé, Helm <b>asks you</b> instead of inventing it.</p>
+        <div class="wt-split">
+          <div>
+            <div class="wt-doc">
+              <div class="wt-dname">MARCUS BELL</div>
+              <div class="wt-dhead">Operations &amp; Facilities Leader<br>Gilbert, AZ · (480) 555-0114 · m.bell@email.com</div>
+              <div class="wt-dsec">PROFESSIONAL SUMMARY</div>
+              <p>Operations director with 11 years leading multi-shift plants to record safety and throughput. Full P&amp;L owner…</p>
+              <div class="wt-dsec">CORE COMPETENCIES</div>
+              <p>P&amp;L Ownership • Multi-Shift Leadership • Lean Six Sigma • Safety Culture • 200+ Headcount</p>
+              <div class="wt-dsec">EXPERIENCE</div>
+              <p><b style="color:#1f3864">Regional Operations Manager</b> · Vantage Foods — Phoenix, AZ</p>
+              <ul class="wt-dlist"><li>Raised OSHA-recordable-free streak to 610 days across 3 sites</li><li>+38% peak-season throughput with flat headcount</li></ul>
+            </div>
+            <div class="wt-diffs"><b>4 changes vs. your master:</b> P&amp;L moved to summary · safety record above the fold · competencies re-ordered to posting · relevant metric leads</div>
+          </div>
+          <div>
+            <div class="wt-qa">
+              <div class="wt-q">“Describe your experience managing multi-shift operations.”</div>
+              <div class="wt-a">“I currently lead a 3-shift, 214-person operation across two Phoenix-area sites. Over the past two years we raised throughput 38% during peak season while holding overtime flat — driven by cross-training 40 floor leads…”<br><span style="color:var(--faint);font-size:11px">Drafted from your résumé — edit anything before it goes anywhere.</span></div>
+            </div>
+            <div class="wt-needs">
+              <div class="wt-q">⚠ The application asks for a DOT compliance certification date. It isn’t on your résumé — do you hold one?</div>
+              <div class="wt-a">Helm never guesses. Missing facts become questions, and this application stays locked until you answer.</div>
+            </div>
+          </div>
+        </div>
+        <div class="wt-law">Rule built into Helm: nothing about you is ever invented. Ever.</div>
+      </div>
+
+      <div class="wt-panel" data-step="4">
+        <h3>5 · You approve. You send. You keep the wheel.</h3>
+        <p class="wt-cap">One tap approves a package. The browser extension fills the employer’s application with your approved answers — or use the copy-ready package on any device — and <b>you</b> click their Submit button. Every application, every time.</p>
+        <div class="wt-bigstat">
+          <div class="wt-bs"><b>1 tap</b><span>to approve a package</span></div>
+          <div class="wt-bs"><b>~60 sec</b><span>your morning review, coffee included</span></div>
+          <div class="wt-bs wt-navy"><b>0</b><span>applications sent without your approval</span></div>
+        </div>
+        <div class="wt-law">That zero never changes — Helm has no way to send an application without you.</div>
+        <div class="wt-finale">
+          <p style="font-size:14.5px;color:var(--muted)"><b style="color:var(--navy)">That's the whole job.</b> Sixty seconds a morning, coffee included.</p>
+          <div class="wt-fbtns"><button class="btn" onclick="track('cta_walkthrough');openModal('walkthrough')">Lock in 50% launch pricing →</button></div>
         </div>
       </div>
-      <div class="prooflabels">
-        <div class="plabel"><b>The why, not just a link</b> — every match explains itself against <i>your</i> goal.</div>
-        <div class="plabel"><b>Tailored before you wake</b> — résumé emphasis and screening answers, drafted per posting from your real history.</div>
-        <div class="plabel"><b>Nothing sends itself</b> — that approve button waits for you. Your click is the only send that exists.</div>
-      </div>
-      <p class="vfoot" style="text-align:center;margin-top:16px">Illustrative demo data — your briefing is built from your résumé and goal.</p>
+    </div>
+
+    <div class="wt-navrow">
+      <button type="button" class="wt-navbtn" id="wt-prev" onclick="wtGo(-1)">← Back</button>
+      <button type="button" class="wt-navbtn wt-primary" id="wt-next" onclick="wtGo(1)">Next: Helm hunts overnight →</button>
     </div>
   </div>
 </section>
@@ -858,6 +1004,54 @@ function showThanks(){
   var btn = document.getElementById("ff-submit");
   btn.disabled = false; btn.textContent = "Reserve my spot — free";
 }
+
+/* ---------- interactive walkthrough ---------- */
+var wtLabels = ["Set your course","Overnight hunt","Morning briefing","Ready to send","You approve"];
+var wtNexts = ["Next: Helm hunts overnight →","Next: your morning briefing →","Next: ready to send →","Next: you approve →","Next"];
+var wtCur = 0, wtSeen = {0:true}, wtInit = false;
+(function(){
+  var el = document.getElementById("wt-steps");
+  if (!el) return;
+  wtLabels.forEach(function(l,i){
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "wt-tab";
+    b.innerHTML = '<span class="wt-n">' + (i+1) + '</span>' + l;
+    b.onclick = function(){ wtShow(i); };
+    el.appendChild(b);
+  });
+})();
+function wtShow(i){
+  wtCur = i; wtSeen[i] = true;
+  document.querySelectorAll(".wt-panel").forEach(function(p,j){ p.classList.toggle("on", j===i); });
+  document.querySelectorAll(".wt-tab").forEach(function(t,j){
+    t.classList.toggle("on", j===i);
+    t.classList.toggle("seen", !!wtSeen[j] && j!==i);
+  });
+  var prev = document.getElementById("wt-prev"), next = document.getElementById("wt-next");
+  prev.disabled = (i===0);
+  next.textContent = wtNexts[i];
+  next.style.visibility = (i===4) ? "hidden" : "visible";
+  if (wtInit) track("walkthrough_step", { step: i+1 });
+}
+function wtGo(d){ wtShow(Math.min(4, Math.max(0, wtCur + d))); }
+function wtApprove(btn){
+  if (btn.classList.contains("wt-ok")) return;
+  btn.textContent = "✓ Approved"; btn.classList.add("wt-ok");
+  track("walkthrough_approve");
+}
+// swipe between steps on touch devices
+(function(){
+  var st = document.getElementById("wt-stage");
+  if (!st) return;
+  var x0 = null;
+  st.addEventListener("touchstart", function(e){ x0 = e.changedTouches[0].clientX; }, {passive:true});
+  st.addEventListener("touchend", function(e){
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 45) wtGo(dx < 0 ? 1 : -1);
+  }, {passive:true});
+})();
+if (document.getElementById("wt-steps")){ wtShow(0); wtInit = true; }
 </script>
 </body>
 </html>
