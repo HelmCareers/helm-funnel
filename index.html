@@ -271,11 +271,14 @@ src="https://www.facebook.com/tr?id=1525865505469906&ev=PageView&noscript=1"
   .wt-tab.on .wt-n{background:var(--teal);color:#fff}
   .wt-tab.seen .wt-n{background:#dcfce7;color:#15803d}
   .wt-stage{margin-top:26px;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:var(--shadow);display:grid;grid-template-rows:auto 1fr;align-items:start;text-align:center}
-  .wt-sample-row{text-align:right;margin-bottom:6px;grid-row:1;grid-column:1}
+  .wt-sample-row{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;grid-row:1;grid-column:1}
+  .wt-live-chip{display:inline-block;font-size:10px;font-weight:800;letter-spacing:1px;color:var(--teal);background:#f0fdfa;border:1px solid #99f6e4;border-radius:99px;padding:4px 10px}
   .wt-sample-chip{display:inline-block;font-size:10px;font-weight:800;letter-spacing:1px;color:var(--amber);background:#fff7ed;border:1px solid #fed7aa;border-radius:99px;padding:4px 10px}
   .wt-panel{grid-row:2;grid-column:1;visibility:hidden;animation:wtFade .25s ease}
   .wt-panel.on{visibility:visible}
   @keyframes wtFade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  @keyframes wtHello{0%,100%{transform:none}30%{transform:translateY(-4px)}60%{transform:translateY(1px)}}
+  .wt-tab.wt-hello{animation:wtHello .55s ease}
   .wt-panel h3{color:var(--navy);font-size:20px}
   .wt-cap{color:var(--muted);font-size:14.5px;margin:6px auto 0;max-width:560px}
   .wt-law{margin-top:14px;font-size:12.5px;color:var(--teal);font-weight:700}
@@ -395,12 +398,12 @@ src="https://www.facebook.com/tr?id=1525865505469906&ev=PageView&noscript=1"
   <div class="wrap center">
     <div class="kicker">How Helm works</div>
     <h2>You sleep. It hunts. You approve.</h2>
-    <p class="sub">Set your course once. Every night, Helm finds your best-fit roles and writes the applications. Every morning, you approve in about 60 seconds. Step through it:</p>
+    <p class="sub">Set your course once. Every night, Helm finds your best-fit roles and writes the applications. Every morning, you approve in about 60 seconds. <b style="color:var(--teal)">Try it yourself — click through all 5 steps:</b></p>
 
     <div class="wt-steps" id="wt-steps"></div>
 
     <div class="wt-stage" id="wt-stage">
-      <div class="wt-sample-row"><span class="wt-sample-chip">SAMPLE DATA</span></div>
+      <div class="wt-sample-row"><span class="wt-live-chip">▶ INTERACTIVE — CLICK THROUGH</span><span class="wt-sample-chip">SAMPLE DATA</span></div>
 
       <div class="wt-panel" data-step="0">
         <h3>1 · Set your course once, in less than 10 minutes</h3>
@@ -1052,6 +1055,28 @@ function wtApprove(btn){
   }, {passive:true});
 })();
 if (document.getElementById("wt-steps")){ wtShow(0); wtInit = true; }
+// One-time "I'm alive" wiggle when the walkthrough first scrolls into view —
+// converts the tab row from "labels" to "buttons" in the visitor's mind.
+(function(){
+  var st = document.getElementById("wt-steps");
+  if (!st) return;
+  var done = false;
+  function hello(){
+    if (done) return; done = true;
+    document.querySelectorAll(".wt-tab").forEach(function(t,i){
+      setTimeout(function(){
+        t.classList.add("wt-hello");
+        setTimeout(function(){ t.classList.remove("wt-hello"); }, 600);
+      }, i*90);
+    });
+  }
+  if ("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting){ setTimeout(hello, 350); io.disconnect(); } });
+    }, { threshold: 0.4 });
+    io.observe(st);
+  } else { setTimeout(hello, 1200); }
+})();
 </script>
 </body>
 </html>
