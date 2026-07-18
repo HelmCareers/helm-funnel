@@ -988,6 +988,7 @@ function submitForm(ev){
     if (timer) clearTimeout(timer);
     // One unionable event name for the DEPLOY scoring; status distinguishes.
     if (r.ok || r.status === 201) { track("reserve", { status: "success", plan: currentPlan }); }
+    else if (r.status === 409) { track("reserve", { status: "duplicate", plan: currentPlan }); } // already reserved (unique email) — same thanks, no double count
     else { track("reserve", { status: "error", code: r.status, plan: currentPlan }); try{ console.warn("[helm] insert rejected; lead saved to localStorage:", payload); }catch(e){} }
     showThanks();
   }).catch(function(){
