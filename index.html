@@ -989,7 +989,18 @@ function submitForm(ev){
   }).then(function(r){
     if (timer) clearTimeout(timer);
     // One unionable event name for the DEPLOY scoring; status distinguishes.
-    if (r.ok || r.status === 201) { track("reserve", { status: "success", plan: currentPlan }); }
+    if (r.ok || r.status === 201) {
+      track("reserve", { status: "success", plan: currentPlan });
+      // Instant confirmation email. Fire-and-forget: the daily sequence cron
+      // catches up any lead this call misses, so failures here cost nothing.
+      try {
+        fetch("https://app.helmcareers.com/api/funnel/welcome", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: payload.email })
+        }).catch(function(){});
+      } catch (e) {}
+    }
     else if (r.status === 409) { track("reserve", { status: "duplicate", plan: currentPlan }); } // already reserved (unique email) — same thanks, no double count
     else { track("reserve", { status: "error", code: r.status, plan: currentPlan }); try{ console.warn("[helm] insert rejected; lead saved to localStorage:", payload); }catch(e){} }
     showThanks();
